@@ -1,31 +1,40 @@
 {
-  "name": "bf_lib-vue",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build:mod": "vue-cli-service build ./src/apps/bf_mod/main.js",
-    "build:overlay": "vue-cli-service build ./src/apps/bf_overlay/main.js",
-    "serve:mod": "vue-cli-service serve ./src/apps/bf_mod/main.js",
-    "serve:overlay": "vue-cli-service serve ./src/apps/bf_overlay/main.js",
-    "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build"
-  },
-  "dependencies": {
-    "@jamescoyle/vue-icon": "^0.1.0",
-    "@mdi/js": "^5.8.55",
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue-cli-plugin-styleguidist": "~4.34.2",
-    "vue-template-compiler": "^2.6.11"
-  }
+	"name": "bf_lib-vue",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"build:mod": "vue-cli-service build ./src/apps/bf_mod/main.js",
+		"build:overlay": "vue-cli-service build ./src/apps/bf_overlay/main.js",
+		"build:chat": "vue-cli-service build ./src/apps/bf_chat-window/main.js",
+		"electron:build": "vue-cli-service electron:build",
+		"electron:serve": "vue-cli-service electron:serve",
+		"postinstall": "electron-builder install-app-deps",
+		"postuninstall": "electron-builder install-app-deps",
+		"serve:mod": "vue-cli-service serve ./src/apps/bf_mod/main.js",
+		"serve:overlay": "vue-cli-service serve ./src/apps/bf_overlay/main.js",
+		"styleguide": "vue-cli-service styleguidist",
+		"styleguide:build": "vue-cli-service styleguidist:build"
+	},
+	"main": "background.js",
+	"dependencies": {
+		"@jamescoyle/vue-icon": "^0.1.0",
+		"@mdi/js": "^5.8.55",
+		"core-js": "^3.6.5",
+		"vue": "^2.6.11",
+		"vue-router": "^3.2.0",
+		"vuex": "^3.4.0"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-router": "~4.5.0",
+		"@vue/cli-plugin-vuex": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"electron": "^9.0.0",
+		"electron-devtools-installer": "^3.1.0",
+		"stylus": "^0.54.7",
+		"stylus-loader": "^3.0.2",
+		"vue-cli-plugin-electron-builder": "^2.0.0-rc.5",
+		"vue-cli-plugin-styleguidist": "~4.34.2",
+		"vue-template-compiler": "^2.6.11"
+	}
 }
