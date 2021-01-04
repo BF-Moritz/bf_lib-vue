@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './apps/bf_chat-window/App';
+import App from './App';
 
 Vue.config.productionTip = false;
 

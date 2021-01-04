@@ -153,6 +153,7 @@ export default {
 		margin-right: 5px;
 		cursor: pointer;
 		color: var(--color);
+		-webkit-app-region: no-drag;
 	}
 
 	.time {
@@ -169,6 +170,7 @@ export default {
 		border-radius: 50%;
 		color: var(--color);
 		cursor: pointer;
+		-webkit-app-region: no-drag;
 	}
 
 	.pin {

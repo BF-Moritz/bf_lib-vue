@@ -24,7 +24,9 @@
 				@pin="pinMsg"
 				@delete="deleteMsg"
 			/>
-			{{ message.message.message }}
+			<div class="content">
+				{{ message.message.message }}
+			</div>
 		</div>
 	</div>
 </template>
@@ -98,11 +100,12 @@ export default {
     background-color: var(--background-color);
     color: var(--color);
     display: grid;
-	width: 100%;
+	// width: 100%;
 	border-radius: var(--border-radius);
 	min-height: 10px;
 	grid-template-columns: 70px 1fr;
 	min-width: 410px;
+	-webkit-app-region: no-drag;
 
     .avatar {
         margin: 10px;
@@ -111,6 +114,10 @@ export default {
     .header {
         margin: 6px 10px 5px 5px;
     }
+
+	.content {
+		margin: 0 10px 5px 5px;
+	}
 }
 </style>
 
