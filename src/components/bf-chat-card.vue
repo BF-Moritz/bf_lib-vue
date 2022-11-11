@@ -3,7 +3,7 @@
 		class="chat-card"
 		:style="{
 			'--font-family': fontFamily,
-			'--background-color': bgColor,
+			'--background-color': message.deleted ? bgColorDeleted : bgColor,
 			'--color': color,
 			'--border-radius': borderRadius
 		}"
@@ -60,6 +60,10 @@ export default {
 			type: String,
 			default: 'rgba(11, 16, 19, 0.8)'
 		},
+		bgColorDeleted: {
+			type: String,
+			default: 'rgba(22, 16, 19, 0.8)'
+		},
 		color: {
 			type: String,
 			default: 'white'
@@ -79,11 +83,11 @@ export default {
 		}
 	},
 	methods: {
-		pinMsg() {
-			console.log('pin');
+		pinMsg(msg) {
+			this.$emit('pin', { message: this.message });
 		},
-		deleteMsg() {
-			console.log('del');
+		deleteMsg(msg) {
+			this.$emit('del', { message: this.message });
 		}
 	}
 };
@@ -106,6 +110,7 @@ export default {
 	grid-template-columns: 70px 1fr;
 	min-width: 410px;
 	-webkit-app-region: no-drag;
+	overflow: hidden;
 
     .avatar {
         margin: 10px;

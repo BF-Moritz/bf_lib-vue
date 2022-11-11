@@ -10,8 +10,8 @@
 		"electron:serve": "vue-cli-service electron:serve",
 		"postinstall": "electron-builder install-app-deps",
 		"postuninstall": "electron-builder install-app-deps",
-		"serve:mod": "vue-cli-service serve ./src/apps/bf_mod/main.js",
-		"serve:overlay": "vue-cli-service serve ./src/apps/bf_overlay/main.js",
+		"serve:mod": "vue-cli-service serve --port=5010 ./src/apps/bf_mod/main.js",
+		"serve:overlay": "vue-cli-service serve --port=5020 ./src/apps/bf_overlay/main.js",
 		"styleguide": "vue-cli-service styleguidist",
 		"styleguide:build": "vue-cli-service styleguidist:build"
 	},

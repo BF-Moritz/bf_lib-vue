@@ -1,12 +1,20 @@
+import { sleep } from './sleep.js';
+
 let info;
 let lastUpdate;
+let updating = false;
 
 /**
  *
  * @param {Object} badges Badges Object
  */
 export default async function resolveBadges(badges, channelID) {
+	while (updating) {
+		await sleep(10);
+	}
+
 	if (!info || Date.now() - lastUpdate > 3600000) {
+		updating = true;
 		const globalURL = 'http://badges.twitch.tv/v1/badges/global/display';
 		const channelURL = `http://badges.twitch.tv/v1/badges/channels/${channelID}/display`;
 
@@ -18,6 +26,7 @@ export default async function resolveBadges(badges, channelID) {
 
 		info = { ...globalInfo.badge_sets, ...channelInfo.badge_sets };
 		lastUpdate = Date.now();
+		updating = false;
 	}
 
 	const parsedBadges = [];
